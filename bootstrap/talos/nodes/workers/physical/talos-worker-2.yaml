@@ -21,6 +21,21 @@ machine:
         image: ghcr.io/siderolabs/kubelet:v1.35.2 # The `image` field is an optional reference to an alternative kubelet image.
         defaultRuntimeSeccompProfileEnabled: true # Enable container runtime default Seccomp profile.
         disableManifestsDirectory: true # The `disableManifestsDirectory` field configures the kubelet to get static pod manifests from the /etc/kubernetes/manifests directory.
+        extraMounts:
+            - destination: /var/lib/longhorn
+              type: bind
+              source: /var/lib/longhorn
+              options:
+                - bind
+                - rshared
+                - rw
+            - destination: /var/lib/iscsi
+              type: bind
+              source: /var/lib/iscsi
+              options:
+                - bind
+                - rshared
+                - rw
         nodeIP:
             validSubnets:
                 - 192.168.111.0/24
@@ -206,6 +221,8 @@ machine:
     kernel:
         modules:
             - name: iscsi_tcp
+            - name: iscsi_generic
+            - name: nbd
 
     # # Configures the seccomp profiles for the machine.
     # seccompProfiles:
