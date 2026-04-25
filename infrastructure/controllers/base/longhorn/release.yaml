@@ -22,6 +22,7 @@ spec:
     defaultSettings:
       defaultDataLocality: disabled
       replicaCount: 3
+      iscsiadmPath: /usr/local/sbin/iscsiadm
     persistence:
       defaultClassReplicaCount: 3
     csi:
