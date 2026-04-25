@@ -93,6 +93,9 @@ machine:
 
     # Used to provide instructions for installations.
     install:
+        extensions:
+            - image: ghcr.io/siderolabs/iscsi-tools:v0.1.4
+            - image: ghcr.io/siderolabs/util-linux-tools:v0.1.0
         disk: /dev/sda # The disk used for installations.
         image: ghcr.io/siderolabs/installer:v1.12.6 # Allows for supplying the image used to perform the installation.
         wipe: true # Indicates if the installation disk should be wiped at installation time.
@@ -199,11 +202,10 @@ machine:
     #         - endpoint: tcp://1.2.3.4:12345 # Where to send logs. Supported protocols are "tcp" and "udp".
     #           format: json_lines # Logs format.
 
-    # # Configures the kernel.
-    # kernel:
-    #     # Kernel modules to load.
-    #     modules:
-    #         - name: btrfs # Module name.
+    # Configures the kernel.
+    kernel:
+        modules:
+            - name: iscsi_tcp
 
     # # Configures the seccomp profiles for the machine.
     # seccompProfiles:
