@@ -1,3 +1,6 @@
 .envrc
 kubeconfig
 cftsecret.json
+clusters/staging/access/kubeconfig
+clusters/staging/access/talosconfig
+
