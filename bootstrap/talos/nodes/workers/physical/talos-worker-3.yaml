@@ -78,7 +78,7 @@ machine:
                 physical: true
               dhcp: false
               addresses:
-                - 192.168.111.12/24
+                - 192.168.111.13/24
               routes:
                 - network: 0.0.0.0/0
                   gateway: 192.168.111.16
@@ -86,6 +86,7 @@ machine:
                   gateway: 192.168.111.16
         nameservers:
             - 192.168.111.16
+            - 1.1.1.1
     # # Configures KubeSpan feature.
     # kubespan:
     #     enabled: true # Enable the KubeSpan feature.
@@ -442,7 +443,7 @@ cluster:
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig
-hostname: talos-worker-2
+hostname: talos-worker-3
 
 # # A static hostname to set for the machine.
 # hostname: controlplane1

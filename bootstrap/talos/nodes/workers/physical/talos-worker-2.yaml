@@ -76,14 +76,14 @@ machine:
         interfaces:
             - deviceSelector:
                 physical: true
-              dhcp: true
+              dhcp: false
+              addresses:
+                - 192.168.111.12/24
               routes:
                 - network: 0.0.0.0/0
                   gateway: 192.168.111.16
-                  metric: 1
                 - network: 10.0.0.0/24
                   gateway: 192.168.111.16
-                  metric: 1
         nameservers:
             - 192.168.111.16
             - 1.1.1.1
